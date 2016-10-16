@@ -2,7 +2,9 @@
 
 var lessons = [
   "01 - The Single Immutable State Tree",
-  "02 - Describing State Changes with Actions"
+  "02 - Describing State Changes with Actions",
+  "03 - Pure and Impure Functions",
+  "04 - The Reducer Function"
 ]
 
 var entry = {}
