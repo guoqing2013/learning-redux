@@ -10,7 +10,7 @@
     return state;
   }
 }*/
-alert(0);
+
 
 const counter = (state = 0, action) => {
   switch (action.type) {

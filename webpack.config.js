@@ -5,13 +5,14 @@ var lessons = [
   "02 - Describing State Changes with Actions",
   "03 - Pure and Impure Functions",
   "04 - The Reducer Function",
-  "05 - Store Methods: getState(), dispatch(), and subscribe()",
-  "06 - Implementing Store from Scratch",
-  "07 - React Counter Example",
-  "08 - Avoiding Array Mutations with concat(), slice(), and ...spread",
-  "09 - Avoiding Object Mutations with Object.assign() and ...spread",
-  "10 - Writing a Todo List Reducer (Adding a Todo)",
-  "11 - Writing a Todo List Reducer (Toggling a Todo)"
+  "05 - Writing a Counter Reducer with Tests",
+  "06 - Store Methods: getState(), dispatch(), and subscribe()",
+  "07 - Implementing Store from Scratch",
+  "08 - React Counter Example",
+  "09 - Avoiding Array Mutations with concat(), slice(), and ...spread",
+  "10 - Avoiding Object Mutations with Object.assign() and ...spread",
+  "11 - Writing a Todo List Reducer (Adding a Todo)",
+  "12 - Writing a Todo List Reducer (Toggling a Todo)"
 ]
 
 var entry = {}
