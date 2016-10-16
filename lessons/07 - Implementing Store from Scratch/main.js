@@ -9,8 +9,8 @@ const counter = (state = 0, action) => {
   }
 }
 
-//const { createStore } = Redux;
 
+//const { createStore } = Redux;
 const createStore = (reducer) => {
   let state;
   let listeners = [];
@@ -25,8 +25,8 @@ const createStore = (reducer) => {
   const subscribe = (listener) => {
     listeners.push(listener);
     return () => {
-      listeners = listeners.filters(l => l !== listener);
-    }
+      listeners = listeners.filter(l => l !== listener);
+    };
   };
 
   dispatch({});
@@ -34,18 +34,10 @@ const createStore = (reducer) => {
   return { getState, dispatch, subscribe };
 };
 
-
-
-
-
-
-
-
 const store = createStore(counter);
-console.log(store.getState());
 
 const render = () => {
-  document.body.innerHTML = store.getState();
+  document.body.innerText = store.getState();
 };
 
 store.subscribe(render);
