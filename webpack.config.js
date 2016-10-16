@@ -4,7 +4,14 @@ var lessons = [
   "01 - The Single Immutable State Tree",
   "02 - Describing State Changes with Actions",
   "03 - Pure and Impure Functions",
-  "04 - The Reducer Function"
+  "04 - The Reducer Function",
+  "05 - Store Methods: getState(), dispatch(), and subscribe()",
+  "06 - Implementing Store from Scratch",
+  "07 - React Counter Example",
+  "08 - Avoiding Array Mutations with concat(), slice(), and ...spread",
+  "09 - Avoiding Object Mutations with Object.assign() and ...spread",
+  "10 - Writing a Todo List Reducer (Adding a Todo)",
+  "11 - Writing a Todo List Reducer (Toggling a Todo)"
 ]
 
 var entry = {}
@@ -40,33 +47,3 @@ module.exports = {
 };
 
 
-
-// module.exports = {
-//   entry: {
-//     "07-child-properties": './lessons/07-child-properties/main.js',
-//     "04%20Properties": './lessons/04 Properties/main.js',
-
-//   },
-//   output: {
-//     path: './lessons/',
-//     filename: "[name]/index.js",
-//     publicPath: '/'
-//   },
-//   devServer: {
-//     inline: true,
-//     contentBase: './lessons/',
-//     port: port
-//   },
-//   module: {
-//     loaders: [
-//       {
-//         test: /\.jsx?$/,
-//         exclude: /(node_modules|bower_components)/,
-//         loader: 'babel',
-//         query: {
-//           presets: ['es2015', 'react']
-//         }
-//       }
-//     ]
-//   }
-// };
