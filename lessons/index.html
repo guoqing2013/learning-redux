@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>React Redux</title>
+</head>
+<body>
+<ul id="lesson-list">
+</ul>
+<script>
+    var lessons = [
+        "01 - The Single Immutable State Tree",
+        "02 - Describing State Changes with Actions"
+    ]
+    var ll = document.getElementById('lesson-list')
+    lessons.forEach(function (lesson) {
+        ll.innerHTML += '<li><a href="/' + lesson + '">' + lesson + '</a></li>'
+    })
+</script>
+
+</body>
+</html>
