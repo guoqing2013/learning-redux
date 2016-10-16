@@ -1,16 +1,3 @@
-/*function counter(state, action) {
-  if(typeof state === 'undefined') {
-    return 0;
-  }
-  if(action.type === 'INCREMENT') {
-    return state + 1;
-  } else if(action.type === 'DECREMENT') {
-    return state - 1;
-  } else {
-    return state;
-  }
-}*/
-
 const counter = (state = 0, action) => {
   switch (action.type) {
     case 'INCREMENT':
@@ -22,29 +9,48 @@ const counter = (state = 0, action) => {
   }
 }
 
-expect(
-  counter(0, {type: 'INCREMENT'})
-).toEqual(1);
+//const { createStore } = Redux;
 
-expect(
-  counter(1, {type: 'INCREMENT'})
-).toEqual(2);
+const createStore = (reducer) => {
+  let state;
+  let listeners = [];
 
-expect(
-  counter(2, {type: 'DECREMENT'})
-).toEqual(1);
+  const getState = () => state;
 
-expect(
-  counter(1, {type: 'DECREMENT'})
-).toEqual(0);
+  const dispatch = (action) => {
+    state = reducer(state, action);
+    listeners.forEach(listener => listener());
+  };
 
-expect(
-  counter(1, {type: 'SOMETHING_ELSE'})
-).toEqual(1);
+  const subscribe = (listener) => {
+    listeners.push(listener);
+    return () => {
+      listeners = listeners.filters(l => l !== listener);
+    }
+  };
 
-expect(
-  counter(undefined, {})
-).toEqual(0);
+  dispatch({});
+
+  return { getState, dispatch, subscribe };
+};
 
 
-console.log('Tests passed!');
+
+
+
+
+
+
+const store = createStore(counter);
+console.log(store.getState());
+
+const render = () => {
+  document.body.innerHTML = store.getState();
+};
+
+store.subscribe(render);
+render();
+
+document.addEventListener('click', () => {
+  store.dispatch({ type: 'INCREMENT' });
+});
