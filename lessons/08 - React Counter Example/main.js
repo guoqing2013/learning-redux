@@ -25,6 +25,7 @@ const { createStore } = Redux;
 const store = createStore(counter);
 
 const render = () => {
+  //document.body.innerText = store.getState();
   ReactDOM.render(
     <Counter
       value={store.getState()}
