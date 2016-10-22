@@ -1,51 +1,65 @@
-/*function counter(state, action) {
-  if(typeof state === 'undefined') {
-    return 0;
-  }
-  if(action.type === 'INCREMENT') {
-    return state + 1;
-  } else if(action.type === 'DECREMENT') {
-    return state - 1;
-  } else {
-    return state;
-  }
-}*/
+const addCounter = (list) => {
+  //return list.concat([0]);
+  return [...list, 0];
+};
+
+const removeCounter = (list, index) => {
+  //return list
+  //  .slice(0, index)
+  //  .concat(list.slice(index + 1));
+  return [
+    ...list.slice(0, index),
+    ...list.slice(index + 1)
+  ];
+};
+
+const incrementCounter = (list, index) => {
+  //return list
+  //  .slice(0,  index)
+  //  .concat([list[index] + 1])
+  //  .concat(list.slice(index + 1));
+  return [
+    ...list.slice(0, index),
+    list[index] + 1,
+    ...list.slice(index + 1)
+  ];
+};
+
+const testAddCounter = () => {
+  const listBefore = [];
+  const listAfter = [0];
+
+  deepFreeze(listBefore);  //Uncaught TypeError: Can't add property 0, object is not extensible
+
+  expect(
+    addCounter(listBefore)
+  ).toEqual(listAfter);
+};
 
 
-const counter = (state = 0, action) => {
-  switch (action.type) {
-    case 'INCREMENT':
-      return state + 1;
-    case 'DECREMENT':
-      return state - 1;
-    default:
-      return state;
-  }
-}
+const testRemoveCounter = () => {
+  const listBefore = [0, 10, 20];
+  const listAfter = [0, 20];
 
-expect(
-  counter(0, {type: 'INCREMENT'})
-).toEqual(1);
+  deepFreeze(listBefore);
 
-expect(
-  counter(1, {type: 'INCREMENT'})
-).toEqual(2);
+  expect(
+    removeCounter(listBefore, 1)
+  ).toEqual(listAfter);
+};
 
-expect(
-  counter(2, {type: 'DECREMENT'})
-).toEqual(1);
+const testIncrementCounter = () => {
+  const listBefore = [0, 10, 20];
+  const listAfter = [0, 11, 20];
 
-expect(
-  counter(1, {type: 'DECREMENT'})
-).toEqual(0);
+  deepFreeze(listBefore);
 
-expect(
-  counter(1, {type: 'SOMETHING_ELSE'})
-).toEqual(1);
+  expect(
+    incrementCounter(listBefore, 1)
+  ).toEqual(listAfter);
+};
 
-expect(
-  counter(undefined, {})
-).toEqual(0);
-
-
-console.log('Tests passed!');
+testAddCounter();
+testRemoveCounter();
+testIncrementCounter();
+console.log('All tests passed');
