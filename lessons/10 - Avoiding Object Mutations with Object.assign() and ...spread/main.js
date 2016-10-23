@@ -1,10 +1,10 @@
 const toggleTodo = (todo) => {
 
-  return Object.assign({}, todo, {
+  return Object.assign({}, todo, { //ES6
     completed: !todo.completed
   });
 
-  //return {
+  //return {                       //ES7
   //  ...todo,
   //  completed: !todo.completed
   //};
