@@ -1,51 +1,97 @@
-/*function counter(state, action) {
-  if(typeof state === 'undefined') {
-    return 0;
-  }
-  if(action.type === 'INCREMENT') {
-    return state + 1;
-  } else if(action.type === 'DECREMENT') {
-    return state - 1;
-  } else {
-    return state;
-  }
-}*/
-
-
-const counter = (state = 0, action) => {
+const todos = (state = [], action) => {
   switch (action.type) {
-    case 'INCREMENT':
-      return state + 1;
-    case 'DECREMENT':
-      return state - 1;
+    case 'ADD_TODO':
+      return [
+        ...state,
+        {
+          id: action.id,
+          text: action.text,
+          completed: false
+        }
+      ];
+    case 'TOGGLE_TODO':
+      return state.map(todo => {
+        if (todo.id !== action.id) {
+          return todo;
+        }
+
+        return {
+          ...todo,
+          completed: !todo.completed
+        };
+      });
     default:
       return state;
   }
+};
+
+const testAddTodo = () => {
+  const stateBefore = [];
+  const action = {
+    type: 'ADD_TODO',
+    id: 0,
+    text: 'Learn Redux'
+  };
+  const stateAfter = [
+    {
+      id: 0,
+      text: 'Learn Redux',
+      completed: false
+    }
+  ];
+
+  deepFreeze(stateBefore);
+  deepFreeze(action);
+
+  expect(
+    todos(stateBefore, action)
+  ).toEqual(stateAfter);
+
 }
 
-expect(
-  counter(0, {type: 'INCREMENT'})
-).toEqual(1);
 
-expect(
-  counter(1, {type: 'INCREMENT'})
-).toEqual(2);
+const testToggleTodo = () => {
+  const stateBefore = [
+    {
+      id: 0,
+      text: 'Learn Redux',
+      completed: false
+    },
+    {
+      id: 1,
+      text: 'Go shopping',
+      completed: false
+    }
+  ];
 
-expect(
-  counter(2, {type: 'DECREMENT'})
-).toEqual(1);
+  const action = {
+    type: 'TOGGLE_TODO',
+    id: 1
+  };
 
-expect(
-  counter(1, {type: 'DECREMENT'})
-).toEqual(0);
+  const stateAfter = [
+    {
+      id: 0,
+      text: 'Learn Redux',
+      completed: false
+    },
+    {
+      id: 1,
+      text: 'Go shopping',
+      completed: true
+    }
+  ];
 
-expect(
-  counter(1, {type: 'SOMETHING_ELSE'})
-).toEqual(1);
+  deepFreeze(stateBefore);
+  deepFreeze(action);
 
-expect(
-  counter(undefined, {})
-).toEqual(0);
+  expect(
+    todos(stateBefore, action)
+  ).expect(stateAfter);
+}
 
 
-console.log('Tests passed!');
+
+testAddTodo();
+testToggleTodo();
+console.log('All tests passed.');
