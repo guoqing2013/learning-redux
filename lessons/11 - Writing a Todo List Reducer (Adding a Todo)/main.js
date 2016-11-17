@@ -35,7 +35,7 @@ const testAddTodo = () => {
   expect(
     todos(stateBefore, action)
   ).toEqual(stateAfter);
-  
+
 }
 
 testAddTodo();
