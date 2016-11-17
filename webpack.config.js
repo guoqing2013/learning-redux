@@ -41,11 +41,18 @@ module.exports = {
         exclude: /(node_modules|bower_components)/,
         loader: 'babel',
         query: {
-          presets: ['es2016', 'react']
+          presets: ['es2016', 'stage-0', 'react']
         }
       }
     ]
   }
 };
 
+// # For ES6/ES2015 support
+// npm install babel-preset-es2015 --save-dev
 
+// # If you want to use JSX
+// npm install babel-preset-react --save-dev
+
+// # If you want to use experimental ES7 features
+// npm install babel-preset-stage-0 --save-dev

@@ -14,7 +14,8 @@
     "webpack-dev-server": "^1.12.1"
   },
   "devDependencies": {
-    "babel-preset-es2016": "^6.16.0"
+    "babel-preset-es2016": "^6.16.0",
+    "babel-preset-stage-0": "^6.16.0"
   },
   "scripts": {
     "start": "webpack-dev-server"
