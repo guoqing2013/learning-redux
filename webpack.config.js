@@ -13,7 +13,8 @@ var lessons = [
   "10 - Avoiding Object Mutations with Object.assign() and ...spread",
   "11 - Writing a Todo List Reducer (Adding a Todo)",
   "12 - Writing a Todo List Reducer (Toggling a Todo)",
-  "13 - Reducer Composition with Arrays"
+  "13 - Reducer Composition with Arrays",
+  "14 - Reducer Composition with Objects"
 ]
 
 var entry = {}
