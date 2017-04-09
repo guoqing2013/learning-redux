@@ -91,7 +91,8 @@ const combineReducers = (reducers) => {
                 action
               );
               return nextState;
-          }
+          },
+          {}
         );
     };
 }
