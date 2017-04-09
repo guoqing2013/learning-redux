@@ -15,7 +15,8 @@ var lessons = [
   "12 - Writing a Todo List Reducer (Toggling a Todo)",
   "13 - Reducer Composition with Arrays",
   "14 - Reducer Composition with Objects",
-  "15 - Reducer Composition with combineReducers()"
+  "15 - Reducer Composition with combineReducers()",
+  "16 - Implementing combineReducers() from Scratch"
 ]
 
 var entry = {}
