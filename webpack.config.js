@@ -16,7 +16,8 @@ var lessons = [
   "13 - Reducer Composition with Arrays",
   "14 - Reducer Composition with Objects",
   "15 - Reducer Composition with combineReducers()",
-  "16 - Implementing combineReducers() from Scratch"
+  "16 - Implementing combineReducers() from Scratch",
+  "17 - React Todo List Example (Adding a Todo)"
 ]
 
 var entry = {}
